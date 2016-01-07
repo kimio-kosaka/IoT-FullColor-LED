@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-var port = 5030;
-var host = 'localhost';
-var ioport = 5040;
+var port = 5030;            //Web access port
+var server = 'localhost';   //server hostnem or IP-adder
+var ioport = 5040;          //socket.ip port
 var io = require('socket.io').listen(ioport);
 
 /*
@@ -12,7 +12,7 @@ app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
 
 app.get('/', function (req, res) {
-  res.render('controller', {host:host, port:ioport});
+  res.render('controller', {host:server, port:ioport});
 });
 
 app.use(express.static(__dirname + '/public'));
